@@ -15,3 +15,6 @@ As dependências do projeto vão ser listadas a baixo, assim como a página de s
 GitHub: https://www.githubstatus.com/
 Vercel: https://www.vercel-status.com/
 AWS: https://health.aws.amazon.com/health/status
+Postgres: SGBD
+pg: conexão e queries
+node-pg-migrate: gerenciar as migrações
