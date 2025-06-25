@@ -4,16 +4,20 @@
   "description": "A project created during the classes of curso.dev",
   "main": "index.js",
   "scripts": {
-    "dev": "next dev",
+    "postgres": "psql --host=localhost --username=postgress --port=5432",
+    "docker-detach": "docker compose --file infra/compose.yaml up --detach",
+    "nex-dev": "next dev",
+    "dev": "npm run nex-dev & npm run docker-detach & npm run postgres",
     "lint:check": "prettier --check .",
     "lint:fix": "prettier --write .",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watchAll"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
     "next": "^13.1.6",
+    "pg": "^8.11.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
