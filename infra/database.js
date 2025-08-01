@@ -11,13 +11,15 @@ async function query(queryString, queryParameters) {
     user: process.env.POSTGRES_USER,
     database: process.env.POSTGRES_DB,
     password: process.env.POSTGRES_PASSWORD,
+    ssl: process.env.NODE_ENV === "development" ? false : true,
   });
   try {
     await client.connect();
     const result = await client.query(query);
     return result;
   } catch (error) {
-    throw new Error("the query failed to return");
+    console.error(error);
+    throw error;
   } finally {
     await client.end();
   }
